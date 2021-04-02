@@ -9,15 +9,11 @@ import { SIGN_UP_START, SIGN_UP_SUCCESS, SIGN_UP_FAIL } from '../store'
 import { useDispatch, useSelector } from 'react-redux'
 
 const initialFormValues={
-    firstname:'',
-    lastname: '',
     username: '',
     email: '',
     password: '',
 }
 const initialErrors={
-    firstname:'',
-    lastname: '',
     username: '',
     email: '',
     password: '',
@@ -71,8 +67,6 @@ export const SignUpForm = (props) => {
             username: form.username.trim(),
             password: form.password.trim(),
             email: form.email.trim(),
-            firstname: form.firstname.trim(),
-            lastname: form.lastname.trim(),
         }
         postNewUser(newUser)
         setForm(initialFormValues)
@@ -103,8 +97,6 @@ export const SignUpForm = (props) => {
     return (
         <StyledDiv>
             <div>
-            {errors? errors.firstname : <></>}
-            {errors? errors.lastname : <></>}
             {errors? errors.username : <></>}
             {errors? errors.email : <></>}
             {errors? errors.password : <></>}
@@ -113,24 +105,6 @@ export const SignUpForm = (props) => {
               <h1>
                 Signup
               </h1>
-                <label>
-                    <h4>First Name</h4>
-                    <input
-                    name='firstname'
-                    value={form.firstname}
-                    onChange={(e) =>{handleChange(e)}}>
-                    </input>
-                </label>
-                <br />
-                <label>
-                <h4>Last Name</h4>
-                    <input 
-                    name='lastname'
-                    value={form.lastname}
-                    onChange={(e) =>{handleChange(e)}}>
-                    </input>
-                </label>
-                <br />
                 <label>
                 <h4>Username</h4>
                     <input 

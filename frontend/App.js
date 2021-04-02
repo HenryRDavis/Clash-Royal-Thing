@@ -22,7 +22,7 @@ function App() {
       <Route exact path="/" component={LandingPage} />
       <Route path="/login" component={() => <LoginForm/>}/>
       <Route path="/signup" component={SignUpForm} />
-      <PrivateRoute path="/home" component={HomePage} />
+      <Route path="/home" component={HomePage} />
       <PrivateRoute path="/account" component={AccountSettings} />
     </div>
   );

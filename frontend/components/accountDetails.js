@@ -22,7 +22,6 @@ export const AccountSettings = () => {
 
     useEffect(() => {
         dispatch({ type: LOAD_START })
-        //grab individual user with username stored in localstorage
         axiosWithAuth()
         .get(`/username/${window.localStorage.getItem("username")}`)
         .then(res=>{
@@ -51,7 +50,6 @@ export const AccountSettings = () => {
     const saveEdit = (e) => {
         const editing = {
             username: userToEdit.username,
-            firstname: userToEdit.firstname,
             lastname: userToEdit.lastname,
             email: userToEdit.email
         }
@@ -62,9 +60,7 @@ export const AccountSettings = () => {
         .then(res =>{
             console.log('update change', res)
             dispatch({type: 'UPDATE_USER', payload: editing})
-            // setUserToEdit(res.data)
             setEditing(false)
-            // history.push('/home')
         })
         .catch(err => {
             console.log('wrong', err)
@@ -92,8 +88,6 @@ export const AccountSettings = () => {
         <Container>
             <StyledDetails>
                 <p>Username: {user.username} </p>
-                <p>First Name: {user.firstname}</p>
-                <p>Last Name: {user.lastname}</p>
                 <p>Email: {user.email}</p>
                 <StyledButton>
                 <button onClick={()=> editUser(user)}>Edit Account</button>
@@ -104,8 +98,6 @@ export const AccountSettings = () => {
             {editing && (
             <form onSubmit={saveEdit}>
                 <input placeholder='username'type="text" name='username' value={userToEdit.username} onChange={handleChange}/>
-                <input placeholder='first'type="text" name='firstname' value={userToEdit.firstname} onChange={handleChange}/>
-                <input placeholder='last' type="text" name='lastname' value={userToEdit.lastname} onChange={handleChange}/>
                 <input placeholder='email' type="text" name='email'value={userToEdit.email} onChange={handleChange}/>
                 <button>Update</button>
             </form>

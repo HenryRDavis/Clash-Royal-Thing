@@ -10,7 +10,7 @@ module.exports = {
     
 }
 
-// get all posts
+// get all clans
 function find() {
      return db('clan')
 }
@@ -25,7 +25,7 @@ function findById(id) {
     return find().where({id}).first()
 }
 
-// add a clan 
+// add your clan 
 async function add(clan) {
     try {
         const [id] = await find().insert(clan, "id");
@@ -36,12 +36,12 @@ async function add(clan) {
     }
 }
 
-// delete a clan 
+// delete your clan 
 function remove(id) {
   return  findById(id).del()
 }
 
-// update a clan 
+// update your clan 
 function update(updating, id) {
     return findById(id).update(updating)
     .then(()=> findById(id))
