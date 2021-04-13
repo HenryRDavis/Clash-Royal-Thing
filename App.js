@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom'
 
 import './App.css';
 import { LandingPage,
-         LoginForm,
-         SignUpForm,
+         login,
+         signup,
          NavigationBar,
          HomePage,
          AccountSettings,
@@ -20,8 +20,8 @@ function App() {
     <div className="App">
       <NavigationBar />
       <Route exact path="/" component={LandingPage} />
-      <Route path="/login" component={() => <LoginForm/>}/>
-      <Route path="/signup" component={SignUpForm} />
+      <Route path="/login" component={() => <login/>}/>
+      <Route path="/signup" component={signup} />
       <Route path="/home" component={HomePage} />
       <PrivateRoute path="/account" component={AccountSettings} />
     </div>
