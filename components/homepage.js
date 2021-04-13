@@ -11,18 +11,17 @@ export const HomePage = () => {
         dispatch({ type: LOAD_START })
             fetchAccountDetails(user)
             .then( res => {
-                // debugger
                 dispatch({ type: LOAD_SUCCESS, payload: res.data })
             })
             .catch( err => {
                 dispatch({ type: LOAD_FAILURE, payload: err})
             })
     }, [dispatch])
-    
+
     return (
         <div>
                 <h1>
-                    This is the homepage
+                    Welcome!
                 </h1>
         </div>
     )
